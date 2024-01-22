@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class MyRecyclerViewAdapter : RecyclerView.Adapter<MyViewHolder>() {
+    val fruitsList = listOf<String>("Mango", "Apple", "Banana", "Guava", "Lemon", "Pear", "Orange")
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInFlater = LayoutInflater.from(parent.context)
         val listItem = layoutInFlater.inflate(
@@ -18,11 +20,12 @@ class MyRecyclerViewAdapter : RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return fruitsList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.myTextView.text = "Hello from onBindViewHolder $position"
+        val fruit = fruitsList[position]
+        holder.myTextView.text = fruit
     }
 }
 
